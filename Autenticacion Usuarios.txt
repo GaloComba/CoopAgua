@@ -1,0 +1,17 @@
+ const firebaseConfig = {
+    apiKey: "AIzaSyDrnMFPa4JbjMKeplnOxrEnbu84sgPqjJ8",
+    authDomain: "app-coop-agua-correa.firebaseapp.com",
+    projectId: "app-coop-agua-correa",
+    storageBucket: "app-coop-agua-correa.appspot.com",
+    messagingSenderId: "68107918847",
+    appId: "1:68107918847:web:3898091e88b4ae24e69bca"
+  };
+
+
+
+
+
+
+
+codigo firebase
+4/1AX4XfWiqcqBUrcK1CxtvNNpfgdFmHZi8Co416r_cCC0lvh_A4Jatlme_at4

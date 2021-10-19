@@ -36,9 +36,56 @@ $$(document).on('page:init', function (e) {
     console.log(e);
 })
 
+$$(document).on('page:init', '.page[data-name="index"]', function (e) {
+  // Do something here when page with data-name="about" attribute loaded and initialized
+  $$("#bot1").on("click", fndatos);
+  
+})
+
 // Option 2. Using live 'page:init' event handlers for each page
 $$(document).on('page:init', '.page[data-name="about"]', function (e) {
     // Do something here when page with data-name="about" attribute loaded and initialized
     console.log(e);
     alert('Hello');
 })
+
+// funciones
+
+var email="";
+var contr="";
+
+function fndatos(){
+  email=$$("#mail").val();
+  contr=$$("#contras").val();
+  firebase.auth().signInWithEmailAndPassword(email, contr)
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+
+    console.log("Bienvenid@!!! " + email);
+    mainView.router.navigate("/about/");
+    // ...
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+    console.error(errorCode);
+        console.error(errorMessage);
+    if(errorCode=="auth/wrong-password"){
+      $$("#incorrecto").html("La contraseña es Incorrecta");
+      console.log("contraseña incorrecta");
+    }
+  
+    if(errorCode=="auth/user-not-found"){
+      $$("#incorrecto").html("El usuario no corresponde");
+      console.log("Usuario incorrecto");
+    }
+    if(errorCode=="auth/invalid-email"){
+      $$("#incorrecto").html("El usuario no corresponde");
+      console.log("Usuario incorrecto");
+    }
+});
+
+
+}

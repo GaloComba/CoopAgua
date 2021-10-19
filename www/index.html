@@ -25,7 +25,7 @@
     <meta name="color-scheme" content="light dark">
 
     <!-- Your app title -->
-    <title>My App</title>
+    <title>Coop Agua Correa</title>
     <!-- Path to Framework7 Library CSS -->
     <link rel="stylesheet" href="lib/framework7/framework7-bundle.min.css">
     <!-- Path to icons -->
@@ -46,9 +46,9 @@
             <div class="navbar">
                 <div class="navbar-bg"></div>
                 <div class="navbar-inner">
-                    <div class="left"><i class="icon icon-back"></i></div>
-                    <div class="title">Page Title</div>
-                    <div class="right"><i class="icon icon-forward"></i></div>
+                    <div class="left"></div>
+                    <div class="title">COOP AGUA CORREA</div>
+                    <div class="right"><i class="icon icon-back"></i></div>
                 </div>
             </div>
     
@@ -62,18 +62,50 @@
             </div>
         
         <!-- Initial Page, "data-name" contains page name -->
-            <div data-name="index" class="page">
+            <div data-name="index" class="page">             
                 <!-- Scrollable page content -->
                 <div class="page-content">
                     <div class="block">
-                        <p>Page content goes here</p>
-                        <!-- Link to another page -->
-                        <a href="/about/" data-view=".page-content">About app</a>
+                        <div class="row">
+                            <div class="col text-align-center"><img src="img/LOGO.png"/></div>
+                        </div>
+                        <div class="list">
+                                <ul>
+                                <li class="item-content item-input">
+                                    <div class="item-inner">
+                                    <div class="item-title item-label"><h2>Email</h2></div>
+                                    <div class="item-input-wrap">
+                                        <input id="mail" type="email" placeholder="Ingrese su Email" />
+                                        <span class="input-clear-button"></span>
+                                    </div>
+                                    </div>
+                                </li>
+                                </ul>
+                          
+                                <ul>
+                                    <li class="item-content item-input">
+                                        <div class="item-inner">
+                                            <div class="item-title item-label"><h2>Contraseña</h2></div>
+                                            <div class="item-input-wrap">
+                                                <input id="contras" type="password" placeholder="Ingrese su Contraseña" />
+                                            <span class="input-clear-button"></span>
+                                            </div>
+                                        </div>
+                                </li>
+                                </ul>
+                        </div>
+                        
+                        <button id ="bot1" class="col button button-fill button-round">INGRESAR</button></br>
+                        <div class="text-align-center" ><h5 class="text-color-red" id="incorrecto"></h5> </div>
+                        
+                        
 
                         <!-- In data-popup attribute we specify CSS selector of popup we need to open -->
+                        
+                        <!--
                         <p><a href="#" data-popup=".my-popup" class="popup-open">Open Popup</a></p>
 
-                        <!-- And somewhere in DOM -->
+                        <!-- And somewhere in DOM ->
                         <div class="popup my-popup">
                             <div class="view">
                                 <div class="page">
@@ -82,7 +114,7 @@
                                         <div class="navbar-inner">
                                             <div class="title">Popup</div>
                                             <div class="right">
-                                                <!-- Link to close popup -->
+                                                <!-- Link to close popup ->
                                                 <a class="link popup-close">Close</a>
                                             </div>
                                         </div>
@@ -92,12 +124,31 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDrnMFPa4JbjMKeplnOxrEnbu84sgPqjJ8",
+        authDomain: "app-coop-agua-correa.firebaseapp.com",
+        projectId: "app-coop-agua-correa",
+        storageBucket: "app-coop-agua-correa.appspot.com",
+        messagingSenderId: "68107918847",
+        appId: "1:68107918847:web:3898091e88b4ae24e69bca"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
 
 
     <script type="text/javascript" src="cordova.js"></script>

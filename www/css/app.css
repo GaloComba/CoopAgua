@@ -83,5 +83,13 @@
 * {
 	font-family: 'Poppins', Arial, sans-serif;
 }
-
-
+/* Custom color theme */
+:root {
+  --f7-theme-color: #000066;
+  --f7-theme-color-rgb: 0, 0, 102;
+  --f7-theme-color-shade: #00003d;
+  --f7-theme-color-tint: #00008f;
+}
+.text-color-red {
+  --f7-theme-color-text-color: #ff3b30;
+}
