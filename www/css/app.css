@@ -93,3 +93,6 @@
 .text-color-red {
   --f7-theme-color-text-color: #ff3b30;
 }
+.text-color-blue {
+  --f7-theme-color-text-color: #000066;
+}
