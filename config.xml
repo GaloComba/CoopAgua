@@ -8,6 +8,8 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
+    <!-- add a version here, otherwise PGB will use whatever the latest version of the package on npm is -->
+    <plugin name="phonegap-plugin-barcodescanner" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -36,22 +38,19 @@
       <preferance name="android-usesCleartextTraffic" value="true" />
       <preference name="android.permission.INTERNET" value="none" />
       <preference name="android.permission.MEDIA_CONTENT_CONTROL" value="none" />
-      <splash density="land-hdpi" src="res/screen/android/drawable-hdpi/screen.png" />
-      <splash density="land-mdpi" src="res/screen/android/drawable-mdpi/screen.png" />
-      <splash density="land-xhdpi" src="res/screen/android/drawable-xhdpi/screen.png" />
-      <splash density="land-xxhdpi" src="res/screen/android/drawable-xxhdpi/screen.png" />
-      <splash density="land-xxxhdpi" src="res/screen/android/drawable-xxxhdpi/screen.png" />
-      <splash density="port-hdpi" src="res/screen/android/drawable-hdpi/screen.png" />
-      <splash density="port-mdpi" src="res/screen/android/drawable-mdpi/screen.png" />
-      <splash density="port-xhdpi" src="res/screen/android/drawable-xhdpi/screen.png" />
-      <splash density="port-xxhdpi" src="res/screen/android/drawable-xxhdpi/screen.png" />
-      <splash density="port-xxxhdpi" src="res/screen/android/drawable-xxxhdpi/screen.png" />
-      <icon density="ldpi" src="res/icon/android/mipmap-ldpi/ic_launcher.png" />
-      <icon density="mdpi" src="res/icon/android/mipmap-mdpi/ic_launcher.png" />
-      <icon density="hdpi" src="res/icon/android/mipmap-hdpi/ic_launcher.png" />
-      <icon density="xhdpi" src="res/icon/android/mipmap-xhdpi/ic_launcher.png" />
-      <icon density="xxhdpi" src="res/icon/android/mipmap-xxhdpi/ic_launcher.png" />
-      <icon density="xxxhdpi" src="res/icon/android/mipmap-xxxhdpi/ic_launcher.png" />
+      <splash density="port-ldpi" src="res/screen/android/splash-port-ldpi.png"/>
+      <splash density="port-mdpi" src="res/screen/android/splash-port-mdpi.png"/>
+      <splash density="port-hdpi" src="res/screen/android/splash-port-hdpi.png"/>
+      <splash density="port-xhdpi" src="res/screen/android/splash-port-xhdpi.png"/>
+      <splash density="port-xxhdpi" src="res/screen/android/splash-port-xxhdpi.png"/>
+      <splash density="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png"/>
+      
+      <icon density="ldpi" src="res/icon/android/ldpi.png"/>
+      <icon density="mdpi" src="res/icon/android/mdpi.png"/>
+      <icon density="hdpi" src="res/icon/android/hdpi.png"/>
+      <icon density="xhdpi" src="res/icon/android/xhdpi.png"/>
+      <icon density="xxhdpi" src="res/icon/android/xxhdpi.png"/>
+      <icon density="xxxhdpi" src="res/icon/android/xxxhdpi.png"/>
     </platform>
 
 
