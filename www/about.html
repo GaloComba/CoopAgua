@@ -9,9 +9,9 @@
                 <ul>
                 <li class="item-content item-input item-input-outline">
                     <div class="item-inner">
-                    <div class="item-title item-floating-label">Medidor</div>
+                    <div class="item-title item-label">MEDIDOR</div>
                     <div class="item-input-wrap">
-                        <input type="text" placeholder="Numero De Medidor" />
+                        <input type="text"  placeholder="Numero De Medidor" id="rqr" />
                         <span class="input-clear-button"></span>
                     </div>
                     </div>
@@ -19,7 +19,29 @@
                 </ul> 
             </div>
         </div>
-        <button id ="qr" class="col button button-fill button-round">LEER QR</button></br>
-        
+            <button id ="qr" class="col button button-fill button-round">LEER QR</button></br>
+
+            <div class="row">
+                <div class="col"><h1 class="text-align-center">INGRESE EL ESTADO ACTUAL</h1></div>
+            </div>
+            <div class="list no-hairlines-md row">
+                <div class="col">
+                    <ul>
+                    <li class="item-content item-input item-input-outline">
+                        <div class="item-inner">
+                        <div class="item-title item-label"> ESTADO</div>
+                        <div class="item-input-wrap">
+                            <input type="number"  placeholder="ESTADO ACTUAL" id="est" />
+                            <span class="input-clear-button"></span>
+                        </div>
+                        </div>
+                    </li>
+                    </ul> 
+                </div>
+            </div>
+
+            <div class="text-align-center" ><h5 class="text-color-red" id="incorrecto2"></h5> </div>
+
+            <button id ="leer" class="col button button-fill button-round">TOMAR ESTADO</button></br>
     </div>
 </div>

@@ -44,13 +44,15 @@ $$(document).on('page:init', '.page[data-name="index"]', function (e) {
 $$(document).on('page:init', '.page[data-name="about"]', function (e) {
     // Do something here when page with data-name="about" attribute loaded and initialized
     console.log(e);
-    $$("#qr").on("click", fnqr)
+    $$("#qr").on("click", fnqr);
+    $$("#leer").on("click",fnleer);
 })
 
 // funciones
 
 var email="";
 var contr="";
+var medidor="", estado="";
 
 
 
@@ -94,6 +96,8 @@ function fnqr(){
               "Result: " + result.text + "\n" +
               "Format: " + result.format + "\n" +
               "Cancelled: " + result.cancelled);
+        console.log($$("#rqr").val());
+        $$("#rqr").val(result.text); 
     },
     function (error) {
         console.log("Scanning failed: " + error);
@@ -112,4 +116,10 @@ function fnqr(){
         disableSuccessBeep: false // iOS and Android
     }
  );
+}
+function fnleer(){
+  medidor=$$("#rqr").val();
+  console.log(medidor);
+  estado=parseInt($$("#est").val());
+  console.log(estado);
 }
