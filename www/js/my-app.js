@@ -17,6 +17,7 @@ var app = new Framework7({
     routes: [
       {path: '/about/',     url: 'about.html'},
       {path: '/index/',     url: 'index.html'},
+      {path: '/about2/',     url: 'about2.html'}
     ]
     // ... other parameters
   });
@@ -36,8 +37,8 @@ $$(document).on('page:init', function (e) {
 
 $$(document).on('page:init', '.page[data-name="index"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
+  crearCategorias();
   $$("#bot1").on("click", fndatos);
-  
 })
 
 // Option 2. Using live 'page:init' event handlers for each page
@@ -47,13 +48,18 @@ $$(document).on('page:init', '.page[data-name="about"]', function (e) {
     $$("#qr").on("click", fnqr);
     $$("#leer").on("click",fnleer);
 })
+$$(document).on('page:init', '.page[data-name="about2"]', function (e) {
+   mostrardatos();
+  $$("#volver").on("click",fnvolver);
+})
 
 // funciones
 
 var email="";
 var contr="";
 var medidor="", estado="";
-
+var db = firebase.firestore();
+var colsocio = db.collection("Socios");
 
 
 function fndatos(){
@@ -89,6 +95,26 @@ function fndatos(){
         }
     });
 }
+function crearCategorias() {
+  
+  console.log("creando categorias");
+
+  dameUnID = "01111";   datos = { direccion: "Santa Fe 1394", Nombre: "Juan Perez", estado:"456", consumo:"0"};
+  colsocio.doc(dameUnID).set(datos);
+
+  dameUnID = "01298";   datos = { direccion: "San Martin 543", Nombre: "Cosme Fulanito", estado:"349", consumo:"0"};
+  colsocio.doc(dameUnID).set(datos);
+
+  dameUnID = "00231";   datos = { direccion: "9 de Julio 1134", Nombre: "Jorge Montenegro", estado:"1296", consumo:"0"};
+  colsocio.doc(dameUnID).set(datos);
+
+  dameUnID = "14350";   datos = { direccion: "Lisandro de la torre 3211", Nombre: "Miguel Fernandez", estado:"3747", consumo:"0" };
+  colsocio.doc(dameUnID).set(datos);
+
+  dameUnID = "20405";   datos = { direccion: "Zeballos 57", Nombre: "Walter Velasquez", estado:"3", consumo:"0"};
+  colsocio.doc(dameUnID).set(datos);
+
+}
 function fnqr(){
   cordova.plugins.barcodeScanner.scan(
     function (result) {
@@ -120,6 +146,74 @@ function fnqr(){
 function fnleer(){
   medidor=$$("#rqr").val();
   console.log(medidor);
-  estado=parseInt($$("#est").val());
+  estad=parseInt($$("#est").val());
   console.log(estado);
+
+  var docRef = db.collection("Socios").doc(medidor);
+    docRef.get().then((doc) => {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+            est = parseInt(doc.data().estado);
+            console.log(est);
+            if (estad >= est){
+                cons = estad-est;
+                var soc = db.collection("Socios").doc(medidor);
+                    // Set the "capital" field of the city 'DC'
+                    return soc.update({
+                        estado: estad,
+                        consumo: cons,
+                    })
+                    .then(() => {
+                        console.log("Document successfully updated!");
+                        mainView.router.navigate("/about2/");
+                    })
+                    .catch((error) => {
+                        // The document probably doesn't exist.
+                        console.error("Error updating document: ", error);
+                    });
+            }
+            else{
+              console.log("estado mal tomado");
+              $$("#incorrecto2").html("EL ESTADO ACTUAL ES MENOR QUE EL ANTERIOR");
+            }
+            console.log(Nombre);
+            $$("#nombre").html(Nombre);
+            $$("#direccion").html(direccion);
+            $$("#estado").html(estado);
+            $$("#consumo").html(consumo);
+          
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+            $$("#incorrecto2").html("EL NUMERO DE MEDIDOR NO EXISTE");
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+  
+}
+
+function mostrardatos(){
+  var docRef = db.collection("Socios").doc(medidor);
+  docRef.get().then((doc) => {
+      if (doc.exists) {
+          console.log("Document data:", doc.data());
+          console.log(doc.data().Nombre);
+          $$("#nombre").html(doc.data().Nombre);
+          $$("#direccion").html(doc.data().direccion);
+          $$("#estado").html("Estado Actual: "+doc.data().estado);
+          $$("#consumo").html("Consumo: "+doc.data().consumo+"m3");
+        
+      } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+          $$("#incorrecto2").html("EL NUMERO DE MEDIDOR NO EXISTE");
+      }
+  }).catch((error) => {
+      console.log("Error getting document:", error);
+  });
+}
+
+function fnvolver(){
+  mainView.router.navigate("/about/");
 }
