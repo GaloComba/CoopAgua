@@ -39,6 +39,7 @@ $$(document).on('page:init', '.page[data-name="index"]', function (e) {
   // Do something here when page with data-name="about" attribute loaded and initialized
   crearCategorias();
   $$("#bot1").on("click", fndatos);
+  $$("#cerrarsecion").on("click", fncerrarsecion)
 })
 
 // Option 2. Using live 'page:init' event handlers for each page
@@ -215,5 +216,11 @@ function mostrardatos(){
 }
 
 function fnvolver(){
+  medidor="";
   mainView.router.navigate("/about/");
+}
+
+function fncerrarsecion(){
+  medidor="";
+  mainView.router.navigate("/index/");
 }
